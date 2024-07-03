@@ -1,7 +1,21 @@
 name: first-action
 on: workflow_dispatch
 jobs:
-  first-job:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Get Node 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: build
+        run: npm build
+      - name: Finish
+        run: echo "Done."
+  copy-files:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Greetings
