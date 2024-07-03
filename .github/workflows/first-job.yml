@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 18
       - name: build
-        run: npm build
+        run: npm run build
       - name: Finish
         run: echo "Done."
   copy-files:
