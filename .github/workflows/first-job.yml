@@ -8,3 +8,11 @@ jobs:
         run: echo "Hello World!"
       - name: End Message
         run: echo "Done. Bye bye"
+      - name: Connect to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: echo "Hello world!"
